@@ -7,18 +7,49 @@
     <link rel="stylesheet" href="./main.css">
     <script src="//at.alicdn.com/t/font_758256_44q9d502oio.js"></script>
     <style type="text/css">
+    .loading{width: 200px;height: 200px;position: relative;}
+    
+    .loading::before,.loading::after{content: '';position: absolute;width: 10px;height: 10px;
+        border-radius: 50%;background: black;
+        top: 0px;left: 0px;right: 0px;bottom: 0px;margin: auto;
+        animation: s 1.5s linear infinite;
+    }
+
+    .loading::after{animation-delay: 0.75s;}
+
+    @keyframes s{
+        0%{width: 0px;height: 0px;opacity: 1;}
+
+        100%{width: 100px;height: 100px;opacity: 0;}
+    }
         .icon {
            width: 1em; height: 1em;
            vertical-align: -0.15em;
            fill: currentColor;
            overflow: hidden;
         }
+
+        .site-welcome{
+            display: none;
+            position: fixed;
+            top: 0;left: 0;width: 100%; height: 100%;
+            background: #888;
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .site-welcome.active{
+            display: flex;
+        }
     </style>
 </head>
 
 <body>
-
-
+    <div id="siteWelcome" class="site-welcome active">
+        <div class="loading"></div>
+    </div>
+ 
     <div class="topNavBar">
         <div class="topNavBar-inner clearfix">
             <a href="#" class="logo" alt="logo" style="float: left;">
@@ -41,7 +72,6 @@
         <div class="mask"></div>
     </div>
 
-    <main>
         <div class="usercard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
@@ -99,84 +129,86 @@
             技能: 前端开发, Node.js开发
         </p>
 
-        <section class="skills" >
-            <h2>技能</h2>
+    <section class="skills" >
+        <h2>技能</h2>
+        <ol class="clearfix">
+            <li>
+                <h3>HTML 5 &apm; CSS 3</h3>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+            </li>
+            <li>
+                <h3>JavaScript</h3>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+            </li>
+            <li>
+                <h3>jQuery</h3>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+            </li>
+            <li>
+                <h3>Vue.js</h3>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+            </li>
+            <li>
+                <h3>React.js</h3>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+            </li>
+            <li>
+                <h3>Node.js</h3>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+            </li>
+        </ol>
+    </section>
+    <section class="Portfolio">
+        <h2>作品集</h2>
+        <nav>
             <ol class="clearfix">
-                <li>
-                    <h3>HTML 5 &apm; CSS 3</h3>
-                    <div class="progressBar">
-                        <div class="progress"></div>
-                    </div>
-                </li>
-                <li>
-                    <h3>JavaScript</h3>
-                    <div class="progressBar">
-                        <div class="progress"></div>
-                    </div>
-                </li>
-                <li>
-                    <h3>jQuery</h3>
-                    <div class="progressBar">
-                        <div class="progress"></div>
-                    </div>
-                </li>
-                <li>
-                    <h3>Vue.js</h3>
-                    <div class="progressBar">
-                        <div class="progress"></div>
-                    </div>
-                </li>
-                <li>
-                    <h3>React.js</h3>
-                    <div class="progressBar">
-                        <div class="progress"></div>
-                    </div>
-                </li>
-                <li>
-                    <h3>Node.js</h3>
-                    <div class="progressBar">
-                        <div class="progress"></div>
-                    </div>
-                </li>
+                <li id="PortfolioAll">所有</li>
+                <li id="PortfolioFramework">框架</li>
+                <li id="PortfolioVallina">原生JS &apm; CSS</li>
             </ol>
-        </section>
-        <section class="Portfolio">
-            <h2>作品集</h2>
-            <nav>
-                <ol class="clearfix">
-                    <li id="PortfolioAll">所有</li>
-                    <li id="PortfolioFramework">框架</li>
-                    <li id="PortfolioVallina">原生JS &apm; CSS</li>
-                </ol>
-                <div id="PortfolioBar" class="bar state-1">
-                    <div class="bar-inner"></div>
-                </div>
-            </nav>
-    <script>
-        PortfolioAll.onclick= function(){
-            PortfolioBar.className = 'bar state-1'
-        }
-
-        PortfolioFramework.onclick= function(){
-            PortfolioBar.className = 'bar state-2'
-        }
-
-        PortfolioVallina.onclick= function(){
-            PortfolioBar.className = 'bar state-3'
-        }
-    </script>
-            <div class="works" style="height: 597px;">
-                <div class="big" style="top: 0; left: 0;">
-                    <img src="./img/1.jpg" alt="作品1">
-                </div>
-                <div class="small" style="top: 0; left: 645px;">
-                        <img src="./img/2.jpg" alt="作品2">
-                </div>
-                <div class="small" style="top: 298px; left: 645px;">
-                        <img src="./img/3.jpg" alt="作品3">
-                </div>
+            <div id="PortfolioBar" class="bar state-1">
+                <div class="bar-inner"></div>
             </div>
-        </section>
-    </main>
+        </nav>
+<script>
+    PortfolioAll.onclick= function(){
+        PortfolioBar.className = 'bar state-1'
+    }
+
+    PortfolioFramework.onclick= function(){
+        PortfolioBar.className = 'bar state-2'
+    }
+
+    PortfolioVallina.onclick= function(){
+        PortfolioBar.className = 'bar state-3'
+    }
+</script>
+        <div class="works" style="height: 597px;">
+            <div class="big" style="top: 0; left: 0;">
+                <img src="./img/1.jpg" alt="作品1">
+            </div>
+            <div class="small" style="top: 0; left: 645px;">
+                    <img src="./img/2.jpg" alt="作品2">
+            </div>
+            <div class="small" style="top: 298px; left: 645px;">
+                    <img src="./img/3.jpg" alt="作品3">
+            </div>
+        </div>
+    </section>
+    <script>
+        siteWelcome.classList.remove('active');
+    </script>
 </body>
 </html>
