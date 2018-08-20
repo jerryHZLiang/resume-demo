@@ -5,23 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My page</title>
     <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./loading.css">
     <script src="//at.alicdn.com/t/font_758256_44q9d502oio.js"></script>
     <style type="text/css">
-    .loading{width: 200px;height: 200px;position: relative;}
-    
-    .loading::before,.loading::after{content: '';position: absolute;width: 10px;height: 10px;
-        border-radius: 50%;background: black;
-        top: 0px;left: 0px;right: 0px;bottom: 0px;margin: auto;
-        animation: s 1.5s linear infinite;
-    }
 
-    .loading::after{animation-delay: 0.75s;}
-
-    @keyframes s{
-        0%{width: 0px;height: 0px;opacity: 1;}
-
-        100%{width: 100px;height: 100px;opacity: 0;}
-    }
         .icon {
            width: 1em; height: 1em;
            vertical-align: -0.15em;
@@ -71,7 +58,7 @@
     <div class="banner">
         <div class="mask"></div>
     </div>
-
+<main>
         <div class="usercard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
@@ -128,7 +115,6 @@
               何镇良 前端开发工程师<br>
             技能: 前端开发, Node.js开发
         </p>
-
     <section class="skills" >
         <h2>技能</h2>
         <ol class="clearfix">
@@ -207,8 +193,12 @@
             </div>
         </div>
     </section>
+</main>
     <script>
-        siteWelcome.classList.remove('active');
+        setTimeout(function(){
+            siteWelcome.classList.remove('active');
+        },900)
+        
     </script>
 </body>
 </html>
