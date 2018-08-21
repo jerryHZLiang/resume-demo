@@ -42,12 +42,26 @@
             <a href="#" class="logo" alt="logo" style="float: left;">
                 <span class="rs">RS</span><span class="card">card</span>
             </a>
-                <nav style="float:right;">
+                <nav class="menu" style="float:right;">
                     <ul class="clearfix">
-                        <li><a href="">关于</a></li>
-                        <li><a href="">技能</a></li>
-                        <li><a href="">作品</a></li>
-                        <li><a href="">博客</a></li>
+                        <li><a href="#siteAbout">关于</a></li>
+                        <li><a href="#siteSkills">技能</a></li>
+                        <li>
+                            <a href="#siteWorks">作品</a>
+                            <ul class="submenu">
+                                <li>作品1</li>
+                                <li>作品2</li>
+                                <li>作品3</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">博客</a>
+                            <ul class="submenu">
+                                    <li>blog1</li>
+                                    <li>blog2</li>
+                                    <li>blog3</li>
+                            </ul>
+                        </li>
                         <li><a href="">日历</a></li>
                         <li><a href="">联系方式</a></li>
                         <li><a href="">其他</a></li>
@@ -59,10 +73,10 @@
         <div class="mask"></div>
     </div>
 <main>
-        <div class="usercard">
+        <div id= "siteAbout" class="usercard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
-                    <img src="./img/avatar.jpg" width=299px height=347px alt="头像">
+                    <img src="./img/avatar.jpg"  alt="头像">
                 </div>
                 <div class="text">
                     <span class="welcome">Hello
@@ -115,7 +129,7 @@
               何镇良 前端开发工程师<br>
             技能: 前端开发, Node.js开发
         </p>
-    <section class="skills" >
+    <section id="siteSkills" class="skills" >
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -156,7 +170,7 @@
             </li>
         </ol>
     </section>
-    <section class="Portfolio">
+    <section id="siteWorks" class="Portfolio">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -206,6 +220,29 @@
                 topNavBar.classList.remove('sticky')
             }
         }
+
+        let liTags = document.querySelectorAll('nav.menu > ul > li')
+        for(let i=0; i<liTags.length;i++){
+            liTags[i].onmouseenter = function(x){
+                x.currentTarget.classList.add('active')
+            }
+            liTags[i].onmouseleave = function(x){
+                x.currentTarget.classList.remove('active')
+            }
+        }
+
+        let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+        for(let i=0; i< aTags.length;i++){
+            aTags[i].onclick = function(x){
+                x.preventDefault()
+                let a = x.currentTarget
+                let href = a.getAttribute('href')  //'#siteAbout'
+                let element =document.querySelector(href)
+                let top = element.offsetTop
+                window.scrollTo(0,top-80)
+            }
+        }
     </script>
 </body>
 </html>
+
