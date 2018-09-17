@@ -5,8 +5,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Resume Demo</title>
-    <link rel="stylesheet" href="./main.css">
+    
     <link rel="stylesheet" href="./loading.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css">
+    <link rel="stylesheet" href="./main.css">
     <script src="//at.alicdn.com/t/font_758256_44q9d502oio.js"></script>
 
     <style type="text/css">
@@ -89,6 +91,7 @@
         <div class="mask"></div>
     </div>
     <main>
+
         <div data-x id="siteAbout" class="usercard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
@@ -190,43 +193,53 @@
     </section>
     <section data-x id="siteWorks" class="Portfolio">
         <h2>作品集</h2>
-        <nav>
-            <ol class="clearfix">
-                <li id="PortfolioAll">所有</li>
-                <li id="PortfolioFramework">框架</li>
-                <li id="PortfolioVallina">原生JS &apm; CSS</li>
-            </ol>
-            <div id="PortfolioBar" class="bar state-1">
-                <div class="bar-inner"></div>
-            </div>
-        </nav>
-        <script>
-            PortfolioAll.onclick = function () {
-                PortfolioBar.className = 'bar state-1'
-            }
+        <!-- 加入轮播 -->
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <img src="./img/works/nav.jpg" class="swiper-slide">Slide 1
+                    <img src="./img/works/canvas.jpg" class="swiper-slide">Slide 2
+                    <img src="./img/works/apple-style-slides.jpg" class="swiper-slide">Slide 3
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+    
 
-            PortfolioFramework.onclick = function () {
-                PortfolioBar.className = 'bar state-2'
-            }
-
-            PortfolioVallina.onclick = function () {
-                PortfolioBar.className = 'bar state-3'
-            }
-        </script>
-        <div class="works" style="height: 597px;">
-            <div class="big" style="top: 0; left: 0;">
-                <img src="./img/1.jpg" alt="作品1">
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div> -->
             </div>
-            <div class="small" style="top: 0; left: 645px;">
-                <img src="./img/2.jpg" alt="作品2">
-            </div>
-            <div class="small" style="top: 298px; left: 645px;">
-                <img src="./img/3.jpg" alt="作品3">
-            </div>
-        </div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+        
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+    <script>
+      var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+  })
+    </script>
     <script>
         //loading
         siteWelcome.classList.remove('active')
@@ -236,10 +249,10 @@
         for (let i = 0; i < specialTags.length; i++) {
             specialTags[i].classList.add('offset')
         }
-        setTimeout(function(){
+        setTimeout(function () {
             findClosest()
         }, 300)
-        
+
         window.onscroll = function (xxx) {
             if (window.scrollY > 100) {
                 topNavBar.classList.add('sticky')
@@ -319,6 +332,7 @@
             }
         }
     </script>
+
 </body>
 
 </html>
