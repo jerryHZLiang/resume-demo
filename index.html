@@ -173,9 +173,9 @@
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <img src="./img/works/nav.jpg" class="swiper-slide">Slide 1
-                        <img src="./img/works/canvas.jpg" class="swiper-slide">Slide 2
-                        <img src="./img/works/apple-style-slides.jpg" class="swiper-slide">Slide 3
+                        <img src="./img/works/nav.jpg" class="swiper-slide">
+                        <img src="./img/works/canvas.jpg" class="swiper-slide">
+                        <img src="./img/works/apple-style-slides.jpg" class="swiper-slide">
                     </div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination"></div>
@@ -193,12 +193,29 @@
 
     </section>
 
+    <section class="message">
+        <form id="postMessageForm">
+            <h2>留言</h2>
+            
+            <ol id="messageList">
+            </ol>
+                <label for="">姓名</label>
+                <input type="text" name="name">
+                <label for="">内容</label>
+                <input type="text" name="content">
+                <input type="submit" value="提交">
+        </form>
+    </section>
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
     <script src="./js/swiper.js"></script>
     <script src="./js/auto-slide-up.js"></script>
     <script src="./js/sticky-topbar.js"></script>
     <script src="./js/smoothly-navogation.js"></script>
+
+    <script src="./js/message.js"></script>
 
 </body>
 
