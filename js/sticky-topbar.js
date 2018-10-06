@@ -1,8 +1,8 @@
 !function(){
-    var view = document.querySelector('#topNavBar')
+    var view = View('#topNavBar')
 
     var controller = {
-        view: view,
+        view: null,
         init: function(view){
             this.view = view
             this.bindEvents()
