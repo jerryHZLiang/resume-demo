@@ -10,7 +10,7 @@
           bindEvents:function(){
             var view = this.view
             window.addEventListener('scroll', (x)=>{
-                if (window.scrollY > 100) {
+                if (window.scrollY > 80) {
                     this.active()
                 } else {
                     this.deactive()
